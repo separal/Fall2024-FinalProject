@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background-image: url('/Background.png'); /* Ensure the correct path */
+        background-size: cover;
+        background-position: center;
+        position: relative; /* Allows child elements to be positioned absolutely */
+    }
+
+    .circle {
+        width: 350px;
+        height: 350px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.8); /* Translucent white */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Optional shadow */
+        padding: 20px;
+        /* Manual centering */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+        .circle h1 {
+            font-size: 2.2rem;
+            color: #333;
+            margin-bottom: 10px;
+            font-family: 'Great Vibes', cursive; /* Swirly, decorative font */
+        }
+
+        .circle p {
+            font-size: 1.2rem;
+            color: #666;
+            margin: 0;
+            font-family: 'Cinzel Decorative', serif; /* Vintage serif font */
+        }
+</style>
+
+
+<div class="circle">
+    <div>
+        <h1>Book Haven</h1>
+        <p>The go-to website for book lovers</p>
+    </div>
+</div>

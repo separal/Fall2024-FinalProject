@@ -1,0 +1,13 @@
+﻿html, body {
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/Background.png'); /* Correct the image path */
+    background-size: cover;
+    background-position: center;
+}
