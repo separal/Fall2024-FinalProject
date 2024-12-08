@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/CS330-Final.props" />
+</Project>

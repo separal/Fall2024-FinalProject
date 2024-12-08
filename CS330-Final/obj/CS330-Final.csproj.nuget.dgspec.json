@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/sparal/Projects/CS330-Final/CS330-Final/CS330-Final.csproj": {}
+    "/Users/sophieanderson/Fall2024-FinalProject/CS330-Final/CS330-Final.csproj": {}
   },
   "projects": {
-    "/Users/sparal/Projects/CS330-Final/CS330-Final/CS330-Final.csproj": {
+    "/Users/sophieanderson/Fall2024-FinalProject/CS330-Final/CS330-Final.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/sparal/Projects/CS330-Final/CS330-Final/CS330-Final.csproj",
+        "projectUniqueName": "/Users/sophieanderson/Fall2024-FinalProject/CS330-Final/CS330-Final.csproj",
         "projectName": "CS330-Final",
-        "projectPath": "/Users/sparal/Projects/CS330-Final/CS330-Final/CS330-Final.csproj",
-        "packagesPath": "/Users/sparal/.nuget/packages/",
-        "outputPath": "/Users/sparal/Projects/CS330-Final/CS330-Final/obj/",
+        "projectPath": "/Users/sophieanderson/Fall2024-FinalProject/CS330-Final/CS330-Final.csproj",
+        "packagesPath": "/Users/sophieanderson/.nuget/packages/",
+        "outputPath": "/Users/sophieanderson/Fall2024-FinalProject/CS330-Final/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/sparal/.nuget/NuGet/NuGet.Config"
+          "/Users/sophieanderson/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -38,6 +38,18 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
