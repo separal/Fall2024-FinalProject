@@ -12,8 +12,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString)); // Ensure SQL Server is used
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-// Add Identity services
-builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+// Add Identity services with roles
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false; // Disable email confirmation for testing
     options.Password.RequireDigit = false; // Relax password requirements for testing
@@ -22,9 +22,13 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
     options.Password.RequireUppercase = false;
     options.Password.RequireLowercase = false;
 })
-.AddEntityFrameworkStores<ApplicationDbContext>();
+.AddEntityFrameworkStores<ApplicationDbContext>()
+.AddDefaultTokenProviders();
 
 builder.Services.AddControllersWithViews();
+
+// Add Razor Pages services to the container
+builder.Services.AddRazorPages();  // <-- Add this line
 
 // Register AIServiceOptions for configuration
 builder.Services.Configure<AIServiceOptions>(builder.Configuration.GetSection("AIService"));
@@ -38,7 +42,37 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
-    var context = services.GetRequiredService<ApplicationDbContext>();
+
+    try
+    {
+        var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+        var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
+
+        // Ensure roles exist
+        string[] roles = { "Admin", "User" };
+        foreach (var role in roles)
+        {
+            if (!await roleManager.RoleExistsAsync(role))
+            {
+                await roleManager.CreateAsync(new IdentityRole(role));
+            }
+        }
+
+        // Create a test admin user
+        var adminEmail = "admin@example.com";
+        var adminPassword = "Admin123!";
+        var adminUser = await userManager.FindByEmailAsync(adminEmail);
+        if (adminUser == null)
+        {
+            adminUser = new IdentityUser { UserName = adminEmail, Email = adminEmail, EmailConfirmed = true };
+            await userManager.CreateAsync(adminUser, adminPassword);
+            await userManager.AddToRoleAsync(adminUser, "Admin");
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error seeding roles and admin user: {ex.Message}");
+    }
 }
 
 // Configure the HTTP request pipeline.
@@ -57,12 +91,12 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthentication(); // Add this middleware to enable Identity
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-app.MapRazorPages();
+app.MapRazorPages();  // Map Razor Pages
 
 app.Run();

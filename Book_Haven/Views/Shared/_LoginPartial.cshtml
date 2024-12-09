@@ -6,7 +6,7 @@
 @if (SignInManager.IsSignedIn(User))
 {
     <div class="navbar-nav">
-        <span class="navbar-text">Welcome, @UserManager.GetUserName(User)</span>
+        <span class="navbar-text" style="color: white; margin-right: 20px;">Welcome, @UserManager.GetUserName(User)</span>
         <a class="nav-link text-dark" href="@Url.Action("Logout", "Account")">Logout</a>
     </div>
 }
@@ -17,3 +17,4 @@ else
         <a class="nav-link text-dark" href="@Url.Action("Register", "Account")">Register</a>
     </div>
 }
+
