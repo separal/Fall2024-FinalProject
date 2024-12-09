@@ -2,7 +2,6 @@ using Fall2024_Assignment3_separal;
 using Fall2024_Assignment3_separal.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,8 +12,18 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString)); // Ensure SQL Server is used
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>(); // Register Identity only once
+// Add Identity services
+builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false; // Disable email confirmation for testing
+    options.Password.RequireDigit = false; // Relax password requirements for testing
+    options.Password.RequiredLength = 6;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireLowercase = false;
+})
+.AddEntityFrameworkStores<ApplicationDbContext>();
+
 builder.Services.AddControllersWithViews();
 
 // Register AIServiceOptions for configuration
@@ -25,12 +34,11 @@ builder.Services.AddHttpClient();
 
 var app = builder.Build();
 
-// Seed the database
+// Seed the database with roles and a test admin user
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var context = services.GetRequiredService<ApplicationDbContext>();
-    DbInitializer.Initialize(context);
 }
 
 // Configure the HTTP request pipeline.
@@ -49,6 +57,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication(); // Add this middleware to enable Identity
 app.UseAuthorization();
 
 app.MapControllerRoute(

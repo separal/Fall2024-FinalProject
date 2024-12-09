@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Fall2024_Assignment3_separal.Models;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 public class AccountController : Controller
 {
@@ -21,20 +22,44 @@ public class AccountController : Controller
         return View();
     }
 
+
+
+
+
+
+
     [HttpPost]
     public async Task<IActionResult> Login(LoginViewModel model)
     {
         if (ModelState.IsValid)
         {
-            var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, false);
-            if (result.Succeeded)
+            // Fetch the user from the database
+            var user = await _userManager.FindByNameAsync(model.Username);
+            if (user != null)
             {
-                return RedirectToAction("Index", "Home");
+                // Check the password manually
+                var hasher = new PasswordHasher<IdentityUser>();
+                var verificationResult = hasher.VerifyHashedPassword(user, user.PasswordHash, model.Password);
+
+                if (verificationResult == PasswordVerificationResult.Success)
+                {
+                    // Proceed to sign in if the password matches
+                    await _signInManager.SignInAsync(user, model.RememberMe);
+                    return RedirectToAction("Index", "Home");
+                }
+
+                ModelState.AddModelError(string.Empty, "Invalid password.");
             }
-            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Invalid username.");
+            }
         }
+
+        ModelState.AddModelError(string.Empty, "Invalid login attempt. Please check your username and password.");
         return View(model);
     }
+
 
 
     // Register Action
