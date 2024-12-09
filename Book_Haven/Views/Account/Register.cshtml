@@ -1,23 +1,27 @@
-﻿@model Fall2024_Assignment3_separal.Models.RegisterViewModel
+﻿@model RegisterViewModel
 
-@{
-    ViewData["Title"] = "Register";
-}
+<h2>Register</h2>
 
-<h2>@ViewData["Title"]</h2>
+<form asp-action="Register" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    
+    <div class="form-group">
+        <label asp-for="Username"></label>
+        <input asp-for="Username" class="form-control" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
 
-<form method="post">
     <div class="form-group">
-        <label for="Username">Username</label>
-        <input type="text" class="form-control" id="Username" name="Username" required />
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
     </div>
+
     <div class="form-group">
-        <label for="Password">Password</label>
-        <input type="password" class="form-control" id="Password" name="Password" required />
+        <label asp-for="ConfirmPassword"></label>
+        <input asp-for="ConfirmPassword" type="password" class="form-control" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
     </div>
-    <div class="form-group">
-        <label for="ConfirmPassword">Confirm Password</label>
-        <input type="password" class="form-control" id="ConfirmPassword" name="ConfirmPassword" required />
-    </div>
+
     <button type="submit" class="btn btn-primary">Register</button>
 </form>

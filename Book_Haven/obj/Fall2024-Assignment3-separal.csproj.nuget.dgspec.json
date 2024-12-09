@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/sparal/Projects/Fall2024-Assignment3-separal/Fall2024-Assignment3-separal/Fall2024-Assignment3-separal.csproj": {}
+    "/Users/sparal/V2-Fall2024-FinalProject/Book_Haven/Fall2024-Assignment3-separal.csproj": {}
   },
   "projects": {
-    "/Users/sparal/Projects/Fall2024-Assignment3-separal/Fall2024-Assignment3-separal/Fall2024-Assignment3-separal.csproj": {
+    "/Users/sparal/V2-Fall2024-FinalProject/Book_Haven/Fall2024-Assignment3-separal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/sparal/Projects/Fall2024-Assignment3-separal/Fall2024-Assignment3-separal/Fall2024-Assignment3-separal.csproj",
+        "projectUniqueName": "/Users/sparal/V2-Fall2024-FinalProject/Book_Haven/Fall2024-Assignment3-separal.csproj",
         "projectName": "Fall2024-Assignment3-separal",
-        "projectPath": "/Users/sparal/Projects/Fall2024-Assignment3-separal/Fall2024-Assignment3-separal/Fall2024-Assignment3-separal.csproj",
+        "projectPath": "/Users/sparal/V2-Fall2024-FinalProject/Book_Haven/Fall2024-Assignment3-separal.csproj",
         "packagesPath": "/Users/sparal/.nuget/packages/",
-        "outputPath": "/Users/sparal/Projects/Fall2024-Assignment3-separal/Fall2024-Assignment3-separal/obj/",
+        "outputPath": "/Users/sparal/V2-Fall2024-FinalProject/Book_Haven/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/sparal/.nuget/NuGet/NuGet.Config"

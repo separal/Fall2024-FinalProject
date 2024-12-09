@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "E/5jghsb74Bl3FfhxoXcNzl0H1qjuvls1N88u2YJIR1FQdmVF7ToTsht3ZN1RyeMMca0pcR3nIjOpS4jQOg6HA==",
+  "dgSpecHash": "9jH0gU/pLoYO9d4P6XtHmCDbrbo8c2Sd2SgYu8apuWLxS++REVu8TLiw/WeiqLoSAjkuM1s/D8BX7tt+Tt/Aiw==",
   "success": true,
-  "projectFilePath": "/Users/sparal/Projects/Fall2024-Assignment3-separal/Fall2024-Assignment3-separal/Fall2024-Assignment3-separal.csproj",
+  "projectFilePath": "/Users/sparal/V2-Fall2024-FinalProject/Book_Haven/Fall2024-Assignment3-separal.csproj",
   "expectedPackageFiles": [
     "/Users/sparal/.nuget/packages/azure.ai.openai/2.1.0/azure.ai.openai.2.1.0.nupkg.sha512",
     "/Users/sparal/.nuget/packages/azure.core/1.44.1/azure.core.1.44.1.nupkg.sha512",
