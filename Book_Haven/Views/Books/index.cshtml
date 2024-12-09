@@ -1,0 +1,123 @@
+﻿@model IEnumerable<Fall2024_Assignment3_separal.Models.Book>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('/Shelff.png');
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-family: 'Cinzel Decorative', serif;
+            text-align: center;
+            margin-top: 20px;
+            color: white; /* Dark brown color for elegance */
+        }
+
+        .table-container {
+            background-color: rgba(255, 255, 255, 0.9); /* Transparent white background */
+            padding: 20px;
+            margin: 40px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 90%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        a.btn {
+            margin: 0 5px;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        a.btn-info {
+            background-color: #17a2b8;
+            color: white;
+        }
+
+        a.btn-warning {
+            background-color: #ffc107;
+            color: white;
+        }
+
+        a.btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        a.btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>The Book Nook</h1>
+
+    <div class="text-center">
+        <a href="@Url.Action("Create")" class="btn btn-primary">Create New Book</a>
+    </div>
+
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Year</th>
+                    <th>Genre</th>
+                    <th>Rating</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var book in Model)
+                {
+                    <tr>
+                        <td>@book.Title</td>
+                        <td>@book.Author</td>
+                        <td>@book.Year</td>
+                        <td>@book.Genre</td>
+                        <td>@book.Rating</td>
+                        <td>
+                            <img src="@book.ImageLink" alt="@book.Title" width="50" height="75" />
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Details", new { id = book.ID })" class="btn btn-info">Learn More!</a>
+                            <a href="@Url.Action("Edit", new { id = book.ID })" class="btn btn-warning">Edit</a>
+                            <a href="@Url.Action("Delete", new { id = book.ID })" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

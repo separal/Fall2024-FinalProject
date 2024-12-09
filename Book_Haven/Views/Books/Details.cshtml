@@ -1,0 +1,17 @@
+﻿@model BookDetailsViewModel
+
+<h1>@Model.Book.Title</h1>
+<p><strong>Author:</strong> @Model.Book.Author</p>
+<p><strong>Genre:</strong> @Model.Book.Genre</p>
+<p><strong>Year:</strong> @Model.Book.Year</p>
+
+<h2>Description</h2>
+<p>@Model.Description</p>
+
+<h2>Reviews</h2>
+<ul>
+    @foreach (var review in Model.Reviews)
+    {
+        <li>@review</li>
+    }
+</ul>
