@@ -1,0 +1,25 @@
+﻿<div id="chatbox">
+    <h3>AI Librarian</h3> <!-- Add a label for the chatbox -->
+    <div id="messages"></div>
+    <input type="text" id="userInput" placeholder="Type a message..." />
+    <button id="sendButton">Send</button>
+</div>
+
+@section Scripts {
+    <script>document.getElementById('sendButton').addEventListener('click', async () => {
+            const userInput = document.getElementById('userInput').value;
+            const response = await fetch('/Chat/SendMessage', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: userInput })
+            });
+
+            const data = await response.json();
+            const messages = document.getElementById('messages');
+            messages.innerHTML += `<div>User: ${userInput}</div>`;
+            messages.innerHTML += `<div>AI: ${data.response}</div>`;
+            document.getElementById('userInput').value = '';
+        });</script>
+}

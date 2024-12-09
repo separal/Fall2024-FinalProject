@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Fall2024_Assignment3_separal</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Fall2024_Assignment3_separal.styles.css" asp-append-version="true" />
+    <style>
+        body {
+            background-image: url('/HomeBack.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .transparent-block {
+            background-color: rgba(255, 228, 225, 0.8); /* Adjust transparency: 0.8 makes it slightly more transparent */
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%; /* Adjust the width as needed */
+            max-width: 800px; /* Optional: set a maximum width */
+            text-align: center; /* This centers the text */
+            position: relative; /* Use absolute positioning within a relative parent */
+            left: 200px; /* Adjust this value to set the x position */
+        }
+
+        h1 {
+            font-family: 'Cinzel Decorative', serif;
+            color: #333;
+            font-size: 3rem; /* Adjust size as needed */
+        }
+
+        .description {
+            font-family: 'Great Vibes', cursive;
+            color: #333;
+            font-size: 1.5rem; /* Increase font size for better visibility */
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="transparent-block">
+        <h1 class="display-4 text-center">Book Haven</h1>
+        <p class="description">The ultimate tool for your next literary adventure!</p>
+    </div>
+</body>
+</html>

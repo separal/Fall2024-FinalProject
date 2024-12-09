@@ -1,0 +1,21 @@
+﻿@model Fall2024_Assignment3_separal.Models.Book
+
+@{
+    ViewData["Title"] = "Book Details";
+}
+
+<h1>@Model.Title</h1>
+
+<div>
+    <h3>Author: @Model.Author</h3>
+    <p><strong>Year:</strong> @Model.Year</p>
+    <p><strong>Genre:</strong> @Model.Genre</p>
+    <p><strong>Rating:</strong> @Model.Rating</p>
+    <p>
+        <strong>Image:</strong><br />
+        <img src="@Model.ImageLink" alt="@Model.Title" width="150" height="225" />
+    </p>
+    <p>
+        <a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>
+    </p>
+</div>

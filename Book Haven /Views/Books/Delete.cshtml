@@ -1,0 +1,14 @@
+﻿@model Fall2024_Assignment3_separal.Models.Book
+
+@{
+    ViewData["Title"] = "Delete Book";
+}
+
+<h1>Delete Book</h1>
+
+<p>Are you sure you want to delete the book "@Model.Title" by @Model.Author?</p>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Cancel</a>
+</form>
