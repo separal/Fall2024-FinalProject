@@ -83,8 +83,8 @@
 <body>
     <h1>The Book Nook</h1>
 
-    @* Check if the user is an Admin before showing the Create New button *@
-    @if (UserManager.IsInRoleAsync(await UserManager.GetUserAsync(User), "Admin").Result)
+    @if (User.Identity?.IsAuthenticated == true &&
+       await UserManager.IsInRoleAsync(await UserManager.GetUserAsync(User), "Admin"))
     {
         <div class="text-center">
             <a href="@Url.Action("Create")" class="btn btn-primary">Create New Book</a>
@@ -119,14 +119,15 @@
                         <td>
                             <a href="@Url.Action("Details", new { id = book.ID })" class="btn btn-info">Learn More!</a>
 
-                            @* Show Edit and Delete buttons only for Admin users *@
-                            @if (UserManager.IsInRoleAsync(await UserManager.GetUserAsync(User), "Admin").Result)
+                            @if (User.Identity?.IsAuthenticated == true &&
+                               await UserManager.IsInRoleAsync(await UserManager.GetUserAsync(User), "Admin"))
                             {
                                 <a href="@Url.Action("Edit", new { id = book.ID })" class="btn btn-warning">Edit</a>
                                 <a href="@Url.Action("Delete", new { id = book.ID })" class="btn btn-danger">Delete</a>
                             }
                         </td>
                     </tr>
+                }
                 }
             </tbody>
         </table>

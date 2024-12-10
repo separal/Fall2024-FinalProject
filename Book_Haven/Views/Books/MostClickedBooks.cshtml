@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Fall2024_Assignment3_separal.Models.BookClicks>
+
+<h2>Most Clicked Books</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Click Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var report in Model)
+        {
+            <tr>
+                <td>@report.Title</td>
+                <td>@report.ClickCount</td>
+            </tr>
+        }
+    </tbody>
+</table>

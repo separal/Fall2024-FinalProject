@@ -14,6 +14,7 @@
     <Folder Include="Views\Books\" />
     <Folder Include="Models\Books\" />
     <Folder Include="Views\AdminTools\" />
+    <Folder Include="Models\BookClick\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,5 +35,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\AdminTools\" />
+    <None Remove="Models\BookClick\" />
   </ItemGroup>
 </Project>

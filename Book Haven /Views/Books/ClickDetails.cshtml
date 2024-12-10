@@ -1,0 +1,20 @@
+﻿@model Fall2024_Assignment3_separal.Models.Book
+
+<h2>Most Clicked Books</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Click Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>@book.ClickCount</td>
+            </tr>
+        }
+    </tbody>
+</table>

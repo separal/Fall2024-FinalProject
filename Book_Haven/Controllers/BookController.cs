@@ -46,6 +46,22 @@ public class BooksController : Controller
         return View();
     }
 
+    public async Task<IActionResult> TrackBookClick(int id)
+    {
+        // Record the book click
+        var bookClick = new BookClick
+        {
+            BookID = id,
+            ClickTime = DateTime.Now
+        };
+
+        _context.BookClicks.Add(bookClick);
+        await _context.SaveChangesAsync();
+
+        // Redirect to the book's details page
+        return RedirectToAction("Details", new { id });
+    }
+
     // Create - POST
     [HttpPost]
     [ValidateAntiForgeryToken]

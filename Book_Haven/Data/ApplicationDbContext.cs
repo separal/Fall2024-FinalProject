@@ -11,17 +11,9 @@ namespace Fall2024_Assignment3_separal.Data
         {
         }
 
-        public DbSet<Book> Books { get; set; } // Add the DbSet for Books
+        public DbSet<Book> Books { get; set; } // DbSet for Books
+        public DbSet<BookClick> BookClicks { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
 
-          
-
-            // Add additional configurations for the Book entity if needed
-            modelBuilder.Entity<Book>()
-                .HasKey(b => b.ID); // Ensure Book ID is the primary key
-        }
     }
 }
