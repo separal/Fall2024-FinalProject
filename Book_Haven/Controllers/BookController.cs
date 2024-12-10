@@ -52,7 +52,7 @@ public class BooksController : Controller
         var bookClick = new BookClick
         {
             BookID = id,
-            ClickTime = DateTime.Now
+            ClickDate = DateTime.Now
         };
 
         _context.BookClicks.Add(bookClick);

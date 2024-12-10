@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Fall2024_Assignment3_separal.Models.BookClicksIndexViewModel>
+
+<h1>Book Clicks</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Book Title</th>
+            <th>Click Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.BookTitle</td>
+                <td>@item.ClickCount</td>
+            </tr>
+        }
+    </tbody>
+</table>

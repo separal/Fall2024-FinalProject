@@ -117,7 +117,7 @@
                             <img src="@book.ImageLink" alt="@book.Title" width="50" height="75" />
                         </td>
                         <td>
-                            <a href="@Url.Action("Details", new { id = book.ID })" class="btn btn-info">Learn More!</a>
+                            <a href="@Url.Action("TrackBookClick", new { id = book.ID })" class="btn btn-info">Learn More!</a>
 
                             @if (User.Identity?.IsAuthenticated == true &&
                                await UserManager.IsInRoleAsync(await UserManager.GetUserAsync(User), "Admin"))

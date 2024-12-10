@@ -11603,32 +11603,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\gavin\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/sparal/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gavin\\OneDrive\\Desktop\\CS330 Final\\Fall2024-FinalProject\\Book_Haven\\Fall2024-Assignment3-separal.csproj",
+      "projectUniqueName": "/Users/sparal/V2-Fall2024-FinalProject/Book_Haven/Fall2024-Assignment3-separal.csproj",
       "projectName": "Fall2024-Assignment3-separal",
-      "projectPath": "C:\\Users\\gavin\\OneDrive\\Desktop\\CS330 Final\\Fall2024-FinalProject\\Book_Haven\\Fall2024-Assignment3-separal.csproj",
-      "packagesPath": "C:\\Users\\gavin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gavin\\OneDrive\\Desktop\\CS330 Final\\Fall2024-FinalProject\\Book_Haven\\obj\\",
+      "projectPath": "/Users/sparal/V2-Fall2024-FinalProject/Book_Haven/Fall2024-Assignment3-separal.csproj",
+      "packagesPath": "/Users/sparal/.nuget/packages/",
+      "outputPath": "/Users/sparal/V2-Fall2024-FinalProject/Book_Haven/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\gavin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/sparal/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
+        "/usr/local/share/dotnet/sdk/7.0.317/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -11641,11 +11634,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -11710,24 +11698,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[7.0.20, 7.0.20]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[7.0.20, 7.0.20]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[7.0.20, 7.0.20]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[7.0.20, 7.0.20]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -11736,7 +11706,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.317/RuntimeIdentifierGraph.json"
       }
     }
   }

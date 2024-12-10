@@ -1,5 +1,10 @@
 ﻿<Properties StartupConfiguration="{458C2B2C-AFEA-4E9B-A8F8-D635C6518087}|https">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Books/index.cshtml">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Chat/Index.cshtml">
     <Files>
       <File FileName="appsettings.json" />
       <File FileName="Controllers/AccountController.cs" />
@@ -8,26 +13,33 @@
       <File FileName="Models/Accounts/RegisterViewModel.cs" />
       <File FileName="Views/Account/Login.cshtml" />
       <File FileName="Views/Account/Register.cshtml" />
-      <File FileName="Data/ApplicationDbContext.cs" />
+      <File FileName="Data/ApplicationDbContext.cs" Line="12" Column="10" />
       <File FileName="Views/Home/Index.cshtml" />
       <File FileName="Views/Shared/_Layout.cshtml" />
       <File FileName="../../../../usr/local/share/dotnet/sdk/7.0.317/Microsoft.Common.CurrentVersion.targets" />
       <File FileName="Views/Shared/_LoginPartial.cshtml" />
-      <File FileName="Views/Books/index.cshtml" Line="14" Column="15" />
+      <File FileName="Views/Books/index.cshtml" Line="115" Column="14" />
       <File FileName="Controllers/AdminToolsContoller.cs" />
-      <File FileName="Views/Chat/Index.cshtml" />
+      <File FileName="Views/Chat/Index.cshtml" Line="33" Column="63" />
       <File FileName="Views/AdminTools/Index.cshtml" />
-      <File FileName="Controllers/BookController.cs" />
+      <File FileName="Controllers/BookController.cs" Line="63" Column="6" />
+      <File FileName="Models/BookClickers/BookClickers.cs" Line="15" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Fall2024-Assignment3-separal">
-            <Node name="Fall2024-Assignment3-separal">
+            <Node name="Fall2024-Assignment3-separal" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Data" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="Accounts" expanded="True" />
+                <Node name="BookClick" expanded="True" />
+                <Node name="Books" expanded="True" />
+              </Node>
+              <Node name="Properties" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="Books" expanded="True">
-                  <Node name="index.cshtml" selected="True" />
-                </Node>
+                <Node name="Books" expanded="True" />
                 <Node name="Chat" expanded="True" />
                 <Node name="Home" expanded="True" />
                 <Node name="Shared" expanded="True" />
@@ -37,16 +49,8 @@
           </Node>
         </State>
       </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
-      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Fall2024-Assignment3-separal PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
 </Properties>

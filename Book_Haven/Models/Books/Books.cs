@@ -26,5 +26,8 @@ namespace Fall2024_Assignment3_separal.Models
         [Required(ErrorMessage = "ImageLink is required.")]
         [Url(ErrorMessage = "ImageLink must be a valid URL.")]
         public string ImageLink { get; set; }
+
+        public ICollection<BookClick> BookClicks { get; set; }
+
     }
 }
