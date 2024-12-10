@@ -3,7 +3,8 @@
 public class RegisterViewModel
 {
     [Required]
-    public string Username { get; set; }
+    [EmailAddress(ErrorMessage = "Invalid Email Address.")]
+    public string Email { get; set; }
 
     [Required]
     [DataType(DataType.Password)]

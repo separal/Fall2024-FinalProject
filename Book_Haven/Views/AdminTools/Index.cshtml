@@ -1,0 +1,139 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
+@{
+    ViewData["Title"] = "Admin Tools";
+    var admins = ViewData["Admins"] as List<Microsoft.AspNetCore.Identity.IdentityUser>;
+}
+
+<h1 style="font-family: 'Cinzel Decorative', serif; color: white;">Admin Tools</h1>
+
+<div class="table-container">
+    <h2>Admins</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var admin in admins)
+            {
+                <tr>
+                    <td>@admin.Email</td>
+                    <td>
+                        <form asp-action="RemoveAdmin" asp-controller="AdminTools" method="post">
+                            <input type="hidden" name="id" value="@admin.Id" />
+                            <button class="btn btn-danger" type="submit">Remove Admin</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h2>Users</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                if (!admins.Any(a => a.Id == user.Id))
+                {
+                    <tr>
+                        <td>@user.Email</td>
+                        <td>
+                            <form asp-action="MakeAdmin" asp-controller="AdminTools" method="post">
+                                <input type="hidden" name="id" value="@user.Id" />
+                                <button class="btn btn-primary" type="submit">Make Admin</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+<style>
+
+    body {
+        font-family: 'Cinzel Decorative', serif;
+        background-image: url('/FlyBooks.png');
+    }
+
+    .table-container {
+        margin: 20px auto;
+        max-width: 90%;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-decoration: underline;
+    }
+
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    td {
+        background-color: #f9f9f9;
+    }
+
+    tr:nth-child(even) td {
+        background-color: #f2f2f2;
+    }
+
+
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+        button.btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+
+            button.btn-primary:hover {
+                background-color: #0056b3;
+            }
+
+        button.btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+
+            button.btn-danger:hover {
+                background-color: #c82333;
+            }
+</style>

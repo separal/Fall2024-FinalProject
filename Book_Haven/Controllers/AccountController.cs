@@ -74,7 +74,13 @@ public class AccountController : Controller
     {
         if (ModelState.IsValid)
         {
-            var user = new IdentityUser { UserName = model.Username };
+            // Set UserName to the email address
+            var user = new IdentityUser
+            {
+                UserName = model.Email, // Use Email as the UserName
+                Email = model.Email     // Set the Email property
+            };
+
             var result = await _userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)
@@ -90,6 +96,7 @@ public class AccountController : Controller
         }
         return View(model);
     }
+
 
     // Logout Action
     public async Task<IActionResult> Logout()

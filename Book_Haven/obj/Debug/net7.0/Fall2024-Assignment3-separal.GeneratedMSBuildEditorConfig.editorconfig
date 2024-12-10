@@ -184,6 +184,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9SZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/sparal/V2-Fall2024-FinalProject/Book_Haven/Views/AdminTools/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW5Ub29scy9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/sparal/V2-Fall2024-FinalProject/Book_Haven/Views/Books/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQm9va3MvQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

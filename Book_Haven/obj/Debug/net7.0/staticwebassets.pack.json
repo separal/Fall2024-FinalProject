@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets/Designer1.jpeg"
     },
     {
+      "Id": "/Users/sparal/V2-Fall2024-FinalProject/Book_Haven/wwwroot/FlyBooks.png",
+      "PackagePath": "staticwebassets/FlyBooks.png"
+    },
+    {
       "Id": "/Users/sparal/V2-Fall2024-FinalProject/Book_Haven/wwwroot/HomeBack.png",
       "PackagePath": "staticwebassets/HomeBack.png"
     },

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ErPAPAzv/6RCAD5r+O2D3wn4CCS8uCgIk/ShhP8wRuE=",
+  "Hash": "KXEeDwjJo/mtpV6McUNrTY+2YJ2I5J2aPzfuzh1kfN0=",
   "Source": "Fall2024-Assignment3-separal",
   "BasePath": "_content/Fall2024-Assignment3-separal",
   "Mode": "Default",
@@ -1154,6 +1154,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.ico"
+    },
+    {
+      "Identity": "/Users/sparal/V2-Fall2024-FinalProject/Book_Haven/wwwroot/FlyBooks.png",
+      "SourceId": "Fall2024-Assignment3-separal",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/sparal/V2-Fall2024-FinalProject/Book_Haven/wwwroot/",
+      "BasePath": "_content/Fall2024-Assignment3-separal",
+      "RelativePath": "FlyBooks.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/FlyBooks.png"
     },
     {
       "Identity": "/Users/sparal/V2-Fall2024-FinalProject/Book_Haven/wwwroot/HomeBack.png",

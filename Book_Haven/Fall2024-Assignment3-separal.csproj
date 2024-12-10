@@ -13,6 +13,7 @@
   <ItemGroup>
     <Folder Include="Views\Books\" />
     <Folder Include="Models\Books\" />
+    <Folder Include="Views\AdminTools\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,5 +31,8 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Views\AdminTools\" />
   </ItemGroup>
 </Project>
