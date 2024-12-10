@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "/Users/sparal/V2-Fall2024-FinalProject/Book_Haven/Fall2024-Assignment3-separal.csproj": {}
   },
   "projects": {
@@ -15,6 +16,22 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/sparal/.nuget/NuGet/NuGet.Config"
+=======
+    "/Users/sophieanderson/Fall2024-FinalProject/Book_Haven/Fall2024-Assignment3-separal.csproj": {}
+  },
+  "projects": {
+    "/Users/sophieanderson/Fall2024-FinalProject/Book_Haven/Fall2024-Assignment3-separal.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/sophieanderson/Fall2024-FinalProject/Book_Haven/Fall2024-Assignment3-separal.csproj",
+        "projectName": "Fall2024-Assignment3-separal",
+        "projectPath": "/Users/sophieanderson/Fall2024-FinalProject/Book_Haven/Fall2024-Assignment3-separal.csproj",
+        "packagesPath": "/Users/sophieanderson/.nuget/packages/",
+        "outputPath": "/Users/sophieanderson/Fall2024-FinalProject/Book_Haven/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/sophieanderson/.nuget/NuGet/NuGet.Config"
+>>>>>>> 452ec397ec4a092407bc5ef55e87b082a06b5f43
         ],
         "originalTargetFrameworks": [
           "net7.0"

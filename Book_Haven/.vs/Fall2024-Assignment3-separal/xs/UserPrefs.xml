@@ -1,10 +1,37 @@
 ﻿<Properties StartupConfiguration="{458C2B2C-AFEA-4E9B-A8F8-D635C6518087}|https">
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workbench ActiveDocument="Views/Chat/Index.cshtml">
+=======
+<<<<<<< HEAD
+  <MonoDevelop.Ide.ItemProperties.Fall2024-Assignment3-separal PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/BookController.cs">
+    <Files>
+      <File FileName="appsettings.json" />
+      <File FileName="Models/Books/Books.cs" />
+      <File FileName="Controllers/BookController.cs" Line="157" Column="1" />
+      <File FileName="Views/Books/MostClickedBooks.cshtml" />
+      <File FileName="Views/Books/Edit.cshtml" />
+      <File FileName="Views/Books/Details.cshtml" />
+      <File FileName="Views/Books/Delete.cshtml" />
+      <File FileName="Views/Books/Create.cshtml" />
+      <File FileName="Views/Books/index.cshtml" />
+      <File FileName="Controllers/AccountController.cs" />
+      <File FileName="Data/ApplicationDbContext.cs" />
+      <File FileName="Models/Books/BookDetailsViewModel.cs" />
+      <File FileName="Views/Shared/_Layout.cshtml" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Books/index.cshtml">
+>>>>>>> 452ec397ec4a092407bc5ef55e87b082a06b5f43
     <Files>
       <File FileName="appsettings.json" />
       <File FileName="Controllers/AccountController.cs" />
@@ -22,13 +49,19 @@
       <File FileName="Controllers/AdminToolsContoller.cs" />
       <File FileName="Views/Chat/Index.cshtml" Line="33" Column="63" />
       <File FileName="Views/AdminTools/Index.cshtml" />
+<<<<<<< HEAD
       <File FileName="Controllers/BookController.cs" Line="63" Column="6" />
       <File FileName="Models/BookClickers/BookClickers.cs" Line="15" Column="1" />
+=======
+      <File FileName="Controllers/BookController.cs" />
+>>>>>>> 5d78bc909951a817e9d1b8aa29ac4b8205e9949e
+>>>>>>> 452ec397ec4a092407bc5ef55e87b082a06b5f43
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Fall2024-Assignment3-separal">
+<<<<<<< HEAD
             <Node name="Fall2024-Assignment3-separal" expanded="True">
               <Node name="Controllers" expanded="True" />
               <Node name="Data" expanded="True" />
@@ -38,6 +71,12 @@
                 <Node name="Books" expanded="True" />
               </Node>
               <Node name="Properties" expanded="True" />
+=======
+            <Node name="Fall2024-Assignment3-separal">
+<<<<<<< HEAD
+              <Node name="Controllers" expanded="True" />
+=======
+>>>>>>> 452ec397ec4a092407bc5ef55e87b082a06b5f43
               <Node name="Views" expanded="True">
                 <Node name="Books" expanded="True" />
                 <Node name="Chat" expanded="True" />
@@ -45,12 +84,27 @@
                 <Node name="Shared" expanded="True" />
               </Node>
               <Node name="wwwroot" expanded="True" />
+>>>>>>> 5d78bc909951a817e9d1b8aa29ac4b8205e9949e
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+<<<<<<< HEAD
   <MonoDevelop.Ide.ItemProperties.Fall2024-Assignment3-separal PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MultiItemStartupConfigurations />
+=======
+<<<<<<< HEAD
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+=======
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Fall2024-Assignment3-separal PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+>>>>>>> 5d78bc909951a817e9d1b8aa29ac4b8205e9949e
+>>>>>>> 452ec397ec4a092407bc5ef55e87b082a06b5f43
 </Properties>

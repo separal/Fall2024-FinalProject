@@ -9,30 +9,48 @@
 </div>
 
 @section Scripts {
-    <script>document.getElementById('sendButton').addEventListener('click', async () => {
-            const userInput = document.getElementById('userInput').value;
+<script>
+    document.getElementById('sendButton').addEventListener('click', async () => {
+        const userInput = document.getElementById('userInput').value;
 
-            // Make sure to send the data as an object with the `message` key
-            const response = await fetch('/Chat/SendMessage', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ message: userInput }) // Correctly wrap in an object
-            });
+        // Ensure the input is not empty before sending
+        if (!userInput.trim()) {
+            alert("Please enter a message!");
+            return;
+        }
 
-            try {
-                const data = await response.json();
+        // Add the user's message to the chat display
+        const messages = document.getElementById('messages');
+        messages.innerHTML += `<div>User: ${userInput}</div>`;
 
-                // Update the chatbox with user input and AI response
-                const messages = document.getElementById('messages');
-                messages.innerHTML += `<div>User: ${userInput}</div>`;
+        // Clear the input field
+        document.getElementById('userInput').value = '';
+
+        // Send the message to the server
+        const response = await fetch('/Chat/SendMessage', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ message: userInput })
+        });
+
+        try {
+            const data = await response.json();
+
+            if (data.response) {
+                // Display AI's response in the chat
                 messages.innerHTML += `<div>AI: ${data.response}</div>`;
-                document.getElementById('userInput').value = '';
-            } catch (err) {
-                console.error("Error parsing response:", err);
-                const messages = document.getElementById('messages');
-                messages.innerHTML += `<div>Error: Could not process the AI response</div>`;
+            } else if (data.error) {
+                messages.innerHTML += `<div>Error: ${data.error}</div>`;
             }
-        });</script>
+        } catch (err) {
+            console.error("Error parsing response:", err);
+            messages.innerHTML += `<div>Error: Could not process the AI response</div>`;
+        }
+
+        // Scroll to the bottom of the chat
+        messages.scrollTop = messages.scrollHeight;
+    });
+</script>
 }
