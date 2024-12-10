@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Fall2024-Assignment3-separal")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+add24ffa9cde3f785502ad8c7689758c06583201")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+006b32081dd77f358ab8d784d4b6349e1845815c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Fall2024-Assignment3-separal")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Fall2024-Assignment3-separal")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

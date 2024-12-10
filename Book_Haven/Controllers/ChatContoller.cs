@@ -1,4 +1,5 @@
 ﻿using Fall2024_Assignment3_separal.Controllers;
+using Fall2024_Assignment3_separal.Models;
 using Fall2024_Assignment3_separal.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +9,6 @@ using System.Text;
 public class ChatController : Controller
 {
     private readonly IHttpClientFactory _clientFactory;
-    private readonly ILogger<ChatController> _logger;
     private readonly string _apiKey;
     private readonly string _endpointUrl;
 
@@ -20,72 +20,85 @@ public class ChatController : Controller
         _endpointUrl = configuration["AIService:EndpointUrl"];
     }
 
-    [HttpPost]
-    public async Task<IActionResult> SendMessage([FromBody] dynamic body)
+    public class ChatRequest
     {
-        if (body == null || string.IsNullOrWhiteSpace(body.message?.ToString()))
+        public string Message { get; set; }
+    }
+
+
+    [HttpPost]
+public async Task<IActionResult> SendMessage([FromBody] ChatRequest request)
+{
+    if (request == null || string.IsNullOrWhiteSpace(request.Message))
+    {
+        return BadRequest("Message cannot be empty.");
+    }
+
+    var message = request.Message;
+    Console.WriteLine(message);
+
+    var client = _clientFactory.CreateClient("AIClient");
+
+    var requestBody = new
+    {
+        messages = new[] 
         {
-            return BadRequest("Message cannot be empty.");
-        }
+            new { role = "system", content = "You are an AI librarian assistant." },
+            new { role = "user", content = message }
+        },
+        max_tokens = 150,
+        temperature = 0.7,
+        top_p = 0.95
+    };
 
-        string message = body.message;
+    var content = new StringContent(JsonConvert.SerializeObject(requestBody), Encoding.UTF8, "application/json");
+    Console.WriteLine(content);
 
-        var client = _clientFactory.CreateClient("AIClient");
+    try
+    {
+        client.DefaultRequestHeaders.Add("api-key", _apiKey);
+        var response = await client.PostAsync(_endpointUrl, content);
 
-        var requestBody = new
+        if (response.IsSuccessStatusCode)
         {
-            messages = new[]
+            var responseContent = await response.Content.ReadAsStringAsync();
+
+            var aiResponse = JsonConvert.DeserializeObject<AIResponse>(responseContent);
+
+            if (aiResponse?.choices != null && aiResponse.choices.Length > 0 && aiResponse.choices[0].message != null)
             {
-                new { role = "system", content = "You are an AI assistant." },
-                new { role = "user", content = message }
-            },
-            max_tokens = 150
-        };
-
-        var content = new StringContent(JsonConvert.SerializeObject(requestBody), Encoding.UTF8, "application/json");
-
-        try
-        {
-            // Use the full endpoint URL for the request
-            var response = await client.PostAsync(_endpointUrl, content);
-
-            if (response.IsSuccessStatusCode)
-            {
-                var responseContent = await response.Content.ReadAsStringAsync();
-                _logger.LogInformation("AI Response: {Response}", responseContent);
-
-                var aiResponse = JsonConvert.DeserializeObject<AIResponse>(responseContent);
-
-                if (aiResponse?.choices != null && aiResponse.choices.Length > 0 && !string.IsNullOrEmpty(aiResponse.choices[0].text))
-                {
-                    return Json(new { response = aiResponse.choices[0].text.Trim() });
-                }
-                else
-                {
-                    _logger.LogWarning("AI returned no choices or invalid text.");
-                    return Json(new { response = "AI returned an incomplete response." });
-                }
+                return Json(new { response = aiResponse.choices[0].message.content.Trim() });
             }
             else
             {
-                _logger.LogError("Error calling AI service: {StatusCode} {Reason}", response.StatusCode, response.ReasonPhrase);
-                return StatusCode((int)response.StatusCode, new { error = "AI service failed" });
+                return Json(new { response = "AI returned an incomplete response." });
             }
         }
-        catch (Exception ex)
+        else
         {
-            _logger.LogError(ex, "An error occurred while sending the message.");
-            return StatusCode(500, new { error = "An unexpected error occurred" });
+            return StatusCode((int)response.StatusCode, new { error = "AI service failed" });
         }
     }
-
-    public class AIResponse
+    catch (Exception ex)
     {
-        public Choice[] choices { get; set; }
+        return StatusCode(500, new { error = "An unexpected error occurred" });
     }
+}
 
-    public class Choice
-    {
-        public string text { get; set; }
-    }
+
+public class AIResponse
+{
+    public Choice[] choices { get; set; }
+}
+
+public class Choice
+{
+    public Message message { get; set; }
+}
+
+public class Message
+{
+    public string content { get; set; }
+}
+
 }
