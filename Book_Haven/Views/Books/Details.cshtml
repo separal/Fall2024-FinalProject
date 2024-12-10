@@ -15,3 +15,35 @@
         <li>@review</li>
     }
 </ul>
+
+<!-- Button to fetch additional data -->
+<h2>Want to Buy?</h2>
+<button id="fetchGoogleBooksData" class="btn btn-primary">Fetch from Google Books</button>
+
+<div id="googleBooksData">
+    <!-- Data from the Google Books API will be displayed here -->
+</div>
+
+<script>
+    document.getElementById("fetchGoogleBooksData").addEventListener("click", async function () {
+        const title = "@Model.Book.Title";
+        const author = "@Model.Book.Author";
+
+        try {
+            const response = await fetch(`/Books/GetGoogleBooksData?title=${encodeURIComponent(title)}&author=${encodeURIComponent(author)}`);
+            const data = await response.json();
+
+            if (data.error) {
+                document.getElementById("googleBooksData").innerHTML = `<p>${data.error}</p>`;
+            } else {
+                document.getElementById("googleBooksData").innerHTML = `
+                    <p><strong>Google Ebook Purchase Link:</strong> <a href="${data.purchaseLink}" target="_blank">${data.purchaseLink}</a></p>
+                    <p><strong>Google Ebook Purchase Price:$</strong> ${data.purchasePrice}</p>
+                    <p><strong>List of Alternative Sellers:</strong> <a href="https://books.google.com/books?id=${data.identifier}&sitesec=buy&source=gbs_atb" target="_blank">https://books.google.com/books?id=${data.identifier}&sitesec=buy&source=gbs_atb</a></p>
+                `;
+            }
+        } catch (error) {
+            document.getElementById("googleBooksData").innerHTML = `<p>An error occurred: ${error.message}</p>`;
+        }
+    });
+</script>

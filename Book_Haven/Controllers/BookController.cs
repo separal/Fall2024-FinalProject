@@ -13,6 +13,7 @@ public class BooksController : Controller
 {
     private readonly string _apiKey;
     private readonly string _endpointUrl;
+    private readonly string _booksKey;
     private readonly ILogger<BooksController> _logger;
 
     private readonly ApplicationDbContext _context;
@@ -25,6 +26,7 @@ public class BooksController : Controller
         _logger = logger;
         _apiKey = configuration["AIService:ApiKey"];
         _endpointUrl = configuration["AIService:EndpointUrl"];
+        _booksKey = configuration["GoogleBooks:ApiKey"];
         _context = context;
     }
 
@@ -227,4 +229,54 @@ public class BooksController : Controller
         }
         return new List<string> { "No reviews available." };
     }
+
+
+[HttpGet]
+public async Task<IActionResult> GetGoogleBooksData(string title, string author)
+{
+    try
+    {
+        using var httpClient = new HttpClient();
+        
+        string searchUrl = $"https://www.googleapis.com/books/v1/volumes?q=intitle:{title}+inauthor:{author}&key={_booksKey}";
+        var searchResponse = await httpClient.GetStringAsync(searchUrl);
+        
+        // Log raw JSON response
+        Console.WriteLine($"Search Response: {searchResponse}");
+        
+        var searchData = JsonConvert.DeserializeObject<dynamic>(searchResponse);
+
+        if (searchData.items != null && searchData.items.Count > 0)
+        {
+            string volumeId = searchData.items[0].id;
+            string volumeUrl = $"https://www.googleapis.com/books/v1/volumes/{volumeId}?key={_booksKey}";
+            var volumeResponse = await httpClient.GetStringAsync(volumeUrl);
+
+            Console.WriteLine($"Volume Response: {volumeResponse}");
+            
+            var volumeData = JsonConvert.DeserializeObject<dynamic>(volumeResponse);
+            
+            // Log values to ensure they're not empty
+            Console.WriteLine($"Buy Link: {volumeData.saleInfo.buyLink}");
+            Console.WriteLine($"Price: {volumeData.saleInfo.listPrice?.amount}");
+
+            // Ensure that the data is not null or empty before returning it
+            return Json(new
+            {
+                purchaseLink = volumeData.saleInfo.buyLink?.ToString() ?? "No Google ebook listing available",
+                purchasePrice = volumeData.saleInfo.listPrice?.amount.ToString() ?? "Price unvailable",
+                identifier = volumeId
+            });
+        }
+
+        return Json(new { error = "No results found for this book." });
+    }
+    catch (Exception ex)
+    {
+        return Json(new { error = ex.Message });
+    }
+}
+
+
+
 }
