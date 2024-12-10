@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\gavin\\OneDrive\\Desktop\\CS330 Final\\Fall2024-FinalProject\\Book_Haven\\Fall2024-Assignment3-separal.csproj": {}
+    "C:\\Users\\gavin\\OneDrive\\Desktop\\CS330 Final\\Fall2024-FinalProject\\Book_Haven\\Fall2024-Assignment3-separal.csproj": {}
   },
   "projects": {
-    "c:\\Users\\gavin\\OneDrive\\Desktop\\CS330 Final\\Fall2024-FinalProject\\Book_Haven\\Fall2024-Assignment3-separal.csproj": {
+    "C:\\Users\\gavin\\OneDrive\\Desktop\\CS330 Final\\Fall2024-FinalProject\\Book_Haven\\Fall2024-Assignment3-separal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\gavin\\OneDrive\\Desktop\\CS330 Final\\Fall2024-FinalProject\\Book_Haven\\Fall2024-Assignment3-separal.csproj",
+        "projectUniqueName": "C:\\Users\\gavin\\OneDrive\\Desktop\\CS330 Final\\Fall2024-FinalProject\\Book_Haven\\Fall2024-Assignment3-separal.csproj",
         "projectName": "Fall2024-Assignment3-separal",
-        "projectPath": "c:\\Users\\gavin\\OneDrive\\Desktop\\CS330 Final\\Fall2024-FinalProject\\Book_Haven\\Fall2024-Assignment3-separal.csproj",
+        "projectPath": "C:\\Users\\gavin\\OneDrive\\Desktop\\CS330 Final\\Fall2024-FinalProject\\Book_Haven\\Fall2024-Assignment3-separal.csproj",
         "packagesPath": "C:\\Users\\gavin\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\gavin\\OneDrive\\Desktop\\CS330 Final\\Fall2024-FinalProject\\Book_Haven\\obj\\",
+        "outputPath": "C:\\Users\\gavin\\OneDrive\\Desktop\\CS330 Final\\Fall2024-FinalProject\\Book_Haven\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hOWq1BM+uAM=",
+  "dgSpecHash": "ZP6ONSjNngM=",
   "success": true,
-  "projectFilePath": "c:\\Users\\gavin\\OneDrive\\Desktop\\CS330 Final\\Fall2024-FinalProject\\Book_Haven\\Fall2024-Assignment3-separal.csproj",
+  "projectFilePath": "C:\\Users\\gavin\\OneDrive\\Desktop\\CS330 Final\\Fall2024-FinalProject\\Book_Haven\\Fall2024-Assignment3-separal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gavin\\.nuget\\packages\\azure.ai.openai\\2.1.0\\azure.ai.openai.2.1.0.nupkg.sha512",
     "C:\\Users\\gavin\\.nuget\\packages\\azure.core\\1.44.1\\azure.core.1.44.1.nupkg.sha512",
