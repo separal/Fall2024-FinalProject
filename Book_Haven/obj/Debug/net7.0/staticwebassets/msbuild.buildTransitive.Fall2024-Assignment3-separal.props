@@ -1,3 +1,3 @@
 ﻿<Project>
-  <Import Project="../buildMultiTargeting/Fall2024-Assignment3-separal.props" />
+  <Import Project="..\buildMultiTargeting\Fall2024-Assignment3-separal.props" />
 </Project>
