@@ -131,15 +131,18 @@
     </div>
 
     <!-- Chatbox -->
-    <div id="chatbox">
-        <h3>AI Librarian</h3> <!-- Add a label for the chatbox -->
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div id="chatbox">
+            <h3>AI Librarian</h3>
 
-        <div id="messages-container" style="display: none;">
-            <div id="messages"></div>
+            <div id="messages-container" style="display: none;">
+                <div id="messages"></div>
+            </div>
+            <input type="text" id="userInput" placeholder="Type a message..." />
+            <button id="sendButton">Send</button>
         </div>
-        <input type="text" id="userInput" placeholder="Type a message..." />
-        <button id="sendButton">Send</button>
-    </div>
+    }
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
