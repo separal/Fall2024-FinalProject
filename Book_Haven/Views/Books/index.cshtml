@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity
 @inject UserManager<IdentityUser> UserManager
 
 @model IEnumerable<Fall2024_Assignment3_separal.Models.Book>
@@ -101,7 +101,10 @@
                     <th>Genre</th>
                     <th>Rating</th>
                     <th>Image</th>
-                    <th>Actions</th>
+                    @if (User.Identity?.IsAuthenticated == true)
+                    {
+                        <th>Actions</th>
+                    }
                 </tr>
             </thead>
             <tbody>
@@ -116,18 +119,19 @@
                         <td>
                             <img src="@book.ImageLink" alt="@book.Title" width="50" height="75" />
                         </td>
-                        <td>
-                            <a href="@Url.Action("TrackBookClick", new { id = book.ID })" class="btn btn-info">Learn More!</a>
+                        @if (User.Identity?.IsAuthenticated == true)
+                        {
+                            <td>
+                                <a href="@Url.Action("TrackBookClick", new { id = book.ID })" class="btn btn-info">Learn More!</a>
 
-                            @if (User.Identity?.IsAuthenticated == true &&
-                               await UserManager.IsInRoleAsync(await UserManager.GetUserAsync(User), "Admin"))
-                            {
-                                <a href="@Url.Action("Edit", new { id = book.ID })" class="btn btn-warning">Edit</a>
-                                <a href="@Url.Action("Delete", new { id = book.ID })" class="btn btn-danger">Delete</a>
-                            }
-                        </td>
+                                @if (await UserManager.IsInRoleAsync(await UserManager.GetUserAsync(User), "Admin"))
+                                {
+                                    <a href="@Url.Action("Edit", new { id = book.ID })" class="btn btn-warning">Edit</a>
+                                    <a href="@Url.Action("Delete", new { id = book.ID })" class="btn btn-danger">Delete</a>
+                                }
+                            </td>
+                        }
                     </tr>
-                }
                 }
             </tbody>
         </table>
