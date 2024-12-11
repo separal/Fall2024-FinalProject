@@ -1,11 +1,13 @@
-﻿using Fall2024_Assignment3_separal.Controllers;
+using Fall2024_Assignment3_separal.Controllers;
 using Fall2024_Assignment3_separal.Models;
 using Fall2024_Assignment3_separal.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 
+[Authorize]
 public class ChatController : Controller
 {
     private readonly IHttpClientFactory _clientFactory;
