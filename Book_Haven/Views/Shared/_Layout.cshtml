@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -134,7 +134,9 @@
     <div id="chatbox">
         <h3>AI Librarian</h3> <!-- Add a label for the chatbox -->
 
-        <div id="messages"></div>
+        <div id="messages-container" style="display: none;">
+            <div id="messages"></div>
+        </div>
         <input type="text" id="userInput" placeholder="Type a message..." />
         <button id="sendButton">Send</button>
     </div>
@@ -144,8 +146,30 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 
-    <script>document.getElementById('sendButton').addEventListener('click', async () => {
+    <script>
+        document.getElementById('sendButton').addEventListener('click', async () => {
             const userInput = document.getElementById('userInput').value;
+
+            // Ensure the input is not empty before sending
+            if (!userInput.trim()) {
+                alert("Please enter a message!");
+                return;
+            }
+
+            // Show the messages container if it's hidden
+            const messagesContainer = document.getElementById('messages-container');
+            if (messagesContainer.style.display === 'none') {
+                messagesContainer.style.display = 'block';
+            }
+
+            // Add the user's message to the chat display
+            const messages = document.getElementById('messages');
+            messages.innerHTML += `<div class="message user-message"><span class="user-name">User:</span> ${userInput}</div>`;
+
+            // Clear the input field
+            document.getElementById('userInput').value = '';
+
+            // Send the message to the server
             const response = await fetch('/Chat/SendMessage', {
                 method: 'POST',
                 headers: {
@@ -154,10 +178,82 @@
                 body: JSON.stringify({ message: userInput })
             });
 
-            const data = await response.json();
-            const messages = document.getElementById('messages');
-            messages.innerHTML += `<div>User: ${userInput}</div>`;
-            messages.innerHTML += `<div>AI: ${data.response}</div>`;
-            document.getElementById('userInput').value = '';
-        });</script>
+            try {
+                const data = await response.json();
+
+                if (data.response) {
+                    // Display AI's response in the chat
+                    messages.innerHTML += `<hr class="message-divider"><div class="message ai-message"><span class="ai-name">AI:</span> ${data.response}</div>`;
+                } else if (data.error) {
+                    messages.innerHTML += `<hr class="message-divider"><div class="message ai-message"><span class="ai-name">Error:</span> ${data.error}</div>`;
+                }
+            } catch (err) {
+                console.error("Error parsing response:", err);
+                messages.innerHTML += `<hr class="message-divider"><div class="message ai-message"><span class="ai-name">Error:</span> Could not process the AI response</div>`;
+            }
+
+            // Scroll to the bottom of the chat
+            messages.scrollTop = messages.scrollHeight;
+        });
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #chatbox {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        #messages {
+            height: 400px;
+            overflow-y: auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .user-message {
+            background-color: #e1ffe8;
+            text-align: right;
+        }
+
+        .ai-message {
+            background-color: #f8e7d9;
+            text-align: left;
+        }
+
+        .user-name {
+            color: green;
+            font-weight: bold;
+        }
+
+        .ai-name {
+            color: orange;
+            font-weight: bold;
+        }
+
+        .message-divider {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 10px 0;
+        }
+    </style>
 </body>
+</html>
