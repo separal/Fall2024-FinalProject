@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
+@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
 @{
     ViewData["Title"] = "Admin Tools";
     var admins = ViewData["Admins"] as List<Microsoft.AspNetCore.Identity.IdentityUser>;
@@ -64,6 +64,7 @@
     body {
         font-family: 'Cinzel Decorative', serif;
         background-image: url('/FlyBooks.png');
+        color:black
     }
 
     .table-container {
@@ -80,6 +81,7 @@
         font-weight: bold;
         margin-bottom: 10px;
         text-decoration: underline;
+        color: black;
     }
 
 
@@ -97,11 +99,12 @@
 
     th {
         background-color: #4CAF50;
-        color: white;
+        color: black;
     }
 
     td {
         background-color: #f9f9f9;
+        color: black;
     }
 
     tr:nth-child(even) td {
